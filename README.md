@@ -1,16 +1,5 @@
-# submission_1
+# Sehat Mental
+Merupakan Aplikasi yang Berisi 10 Penyakit Mental yang Biasanya dialami oleh Orang-orang pada Umumnya. Menyediakan Informasi Mengenai Deskripsi, Penyebab, dan Solusi dari Penyakit-Penyakit Mental. 
 
-A new Flutter project.
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Disclaimer
+Projek ini dibuat dengan menggunakan Flutter dan menjadi submission untuk Proyek Akhir Kelas "Belajar Membuat Aplikasi Flutter untuk Pemula" ~Dicoding
