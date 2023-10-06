@@ -25,7 +25,8 @@ class _HomePageState extends State<HomePage> {
           ),
         ],
       ),
-      body: Column(
+      body: ListView(
+        // Menggunakan ListView sebagai root
         children: [
           Padding(
             padding: const EdgeInsets.all(10),
@@ -48,68 +49,69 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
           ),
-          Expanded(
-            child: ListView.builder(
-              itemCount: filteredSakit.length,
-              itemBuilder: (context, index) {
-                return Card(
-                  margin: const EdgeInsets.all(10),
-                  child: InkWell(
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) =>
-                              DetailPage(issue: filteredSakit[index]),
-                        ),
-                      );
-                    },
-                    child: Row(
-                      children: [
-                        Image.asset(
-                          filteredSakit[index].image,
-                          width: 100,
-                          height: 100,
-                          fit: BoxFit.cover,
-                        ),
-                        const SizedBox(width: 10),
-                        Expanded(
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                filteredSakit[index].title,
-                                style: const TextStyle(
-                                  fontSize: 18,
-                                  fontWeight: FontWeight.bold,
-                                ),
+          ListView.builder(
+            shrinkWrap: true,
+            physics:
+                NeverScrollableScrollPhysics(), // Menghindari konflik dengan scroll utama
+            itemCount: filteredSakit.length,
+            itemBuilder: (context, index) {
+              return Card(
+                margin: const EdgeInsets.all(10),
+                child: InkWell(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) =>
+                            DetailPage(issue: filteredSakit[index]),
+                      ),
+                    );
+                  },
+                  child: Row(
+                    children: [
+                      Image.asset(
+                        filteredSakit[index].image,
+                        width: 100,
+                        height: 100,
+                        fit: BoxFit.cover,
+                      ),
+                      const SizedBox(width: 10),
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              filteredSakit[index].title,
+                              style: const TextStyle(
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold,
                               ),
-                              Text(
-                                filteredSakit[index].description,
-                                maxLines: 3,
-                                overflow: TextOverflow.ellipsis,
-                              ),
-                              TextButton(
-                                onPressed: () {
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                      builder: (context) => DetailPage(
-                                          issue: filteredSakit[index]),
-                                    ),
-                                  );
-                                },
-                                child: const Text("Read more"),
-                              ),
-                            ],
-                          ),
+                            ),
+                            Text(
+                              filteredSakit[index].description,
+                              maxLines: 3,
+                              overflow: TextOverflow.ellipsis,
+                            ),
+                            TextButton(
+                              onPressed: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) =>
+                                        DetailPage(issue: filteredSakit[index]),
+                                  ),
+                                );
+                              },
+                              child: const Text("Read more"),
+                            ),
+                          ],
                         ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
-                );
-              },
-            ),
+                ),
+              );
+            },
           ),
         ],
       ),
